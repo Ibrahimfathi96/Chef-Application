@@ -71,7 +71,7 @@ class ChangeLanguageScreen extends StatelessWidget {
                           text: "English",
                           onPressed: () {
                             BlocProvider.of<GlobalCubit>(context)
-                                .changeLanguage();
+                                .changeLanguage('en');
                           },
                           width: 140,
                           backgroundColor: AppColors.blackColor,
@@ -80,7 +80,7 @@ class ChangeLanguageScreen extends StatelessWidget {
                           text: "العربية",
                           onPressed: () {
                             BlocProvider.of<GlobalCubit>(context)
-                                .changeLanguage();
+                                .changeLanguage('ar');
                           },
                           width: 140,
                           backgroundColor: AppColors.blackColor,
