@@ -4,7 +4,7 @@ class AppAssets {
   static const String lock = '$basePath/lock.png';
   static const String imagePicker = '$basePath/image_picker.png';
   static const String background = '$basePath/bg.png';
-  static const String background1 = '$basePath/bg1.png';
+  static const String backgroundTwo = '$basePath/bg1.png';
   static const String appLogoSVG = '$basePath/logo.svg';
   static const String lockSVG = '$basePath/lock.svg';
   static const String imagePickerSVG = '$basePath/image_picker.svg';

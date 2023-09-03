@@ -30,7 +30,7 @@ class AppRoutes {
     switch (routeSettings.name) {
       case Routes.initialRoute:
         return MaterialPageRoute(
-          builder: (_) => const SplashScreen(),
+          builder: (_) => const LoginScreen(),
         );
       case Routes.login:
         return MaterialPageRoute(
