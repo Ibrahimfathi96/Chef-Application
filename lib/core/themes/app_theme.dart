@@ -14,7 +14,7 @@ ThemeData getAppTheme() {
     //text theme
     textTheme: TextTheme(
       displayLarge: boldStyle(),
-      displayMedium: boldStyle(),
+      displayMedium: regularStyle(),
     ),
     //button theme
     elevatedButtonTheme: ElevatedButtonThemeData(

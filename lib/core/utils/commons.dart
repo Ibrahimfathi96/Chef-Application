@@ -5,5 +5,9 @@ void navigate({
   required String routeName,
   dynamic arguments,
 }) {
-  Navigator.pushNamed(context, routeName, arguments: arguments);
+  Navigator.pushNamed(
+    context,
+    routeName,
+    arguments: arguments,
+  );
 }

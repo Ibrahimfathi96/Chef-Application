@@ -1,5 +1,6 @@
 import 'package:chef_app/core/utils/app_assets.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
+import 'package:chef_app/core/widgets/custom_button.dart';
 import 'package:chef_app/core/widgets/custom_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -24,7 +25,7 @@ class ChangeLanguageScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               SizedBox(
-                height: 116.h,
+                height: 140.h,
               ),
               CustomImage(
                 imagePath: AppAssets.appLogo,
@@ -47,8 +48,7 @@ class ChangeLanguageScreen extends StatelessWidget {
               Text(
                 "Please Choose your language",
                 textAlign: TextAlign.center,
-                style: Theme.of(context).textTheme.displayLarge!.copyWith(
-                      fontWeight: FontWeight.w400,
+                style: Theme.of(context).textTheme.displayMedium!.copyWith(
                       color: AppColors.blackColor,
                     ),
               ),
@@ -60,33 +60,17 @@ class ChangeLanguageScreen extends StatelessWidget {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: Size(140.w, 48.h),
-                        backgroundColor: AppColors.blackColor,
-                      ),
+                    CustomButton(
+                      text: "English",
                       onPressed: () {},
-                      child: Text(
-                        "English",
-                        style:
-                            Theme.of(context).textTheme.displayLarge!.copyWith(
-                                  color: AppColors.whiteColor,
-                                ),
-                      ),
+                      width: 140,
+                      backgroundColor: AppColors.blackColor,
                     ),
-                    ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        minimumSize: Size(140.w, 48.h),
-                        backgroundColor: AppColors.blackColor,
-                      ),
+                    CustomButton(
+                      text: "العربية",
                       onPressed: () {},
-                      child: Text(
-                        "العربية",
-                        style:
-                            Theme.of(context).textTheme.displayLarge!.copyWith(
-                                  color: AppColors.whiteColor,
-                                ),
-                      ),
+                      width: 140,
+                      backgroundColor: AppColors.blackColor,
                     ),
                   ],
                 ),
