@@ -7,13 +7,24 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Chef-Application',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
           seedColor: Colors.deepPurple,
         ),
         useMaterial3: true,
       ),
-      home: const Scaffold(),
+      home: Scaffold(
+        body: Container(
+          color: Colors.red,
+          child: Center(
+            child: ElevatedButton(
+              onPressed: () {},
+              child: const Text("Button"),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }

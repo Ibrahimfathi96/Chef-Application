@@ -1,7 +1,6 @@
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 ThemeData getAppTheme() {
   return ThemeData(
