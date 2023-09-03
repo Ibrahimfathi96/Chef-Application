@@ -1,6 +1,8 @@
+import 'package:chef_app/core/localization/app_locale.dart';
 import 'package:chef_app/core/routes/app_routes.dart';
 import 'package:chef_app/core/themes/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyApp extends StatelessWidget {
@@ -16,6 +18,17 @@ class MyApp extends StatelessWidget {
         initialRoute: Routes.initialRoute,
         onGenerateRoute: AppRoutes.onGenerateRoutes,
         theme: getAppTheme(),
+        localizationsDelegates: const [
+          GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
+          GlobalWidgetsLocalizations.delegate,
+          AppLocalizations.delegate,
+        ],
+        supportedLocales: const [
+          Locale('ar', "EG"),
+          Locale('en', "US"),
+        ],
+        locale: const Locale('ar'),
       ),
     );
   }
