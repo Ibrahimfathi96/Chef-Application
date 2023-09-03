@@ -1,4 +1,4 @@
-import 'package:chef_app/core/localization/app_locale.dart';
+import 'package:chef_app/core/locale/app_locale.dart';
 import 'package:chef_app/core/routes/app_routes.dart';
 import 'package:chef_app/core/utils/app_assets.dart';
 import 'package:chef_app/core/utils/app_colors.dart';

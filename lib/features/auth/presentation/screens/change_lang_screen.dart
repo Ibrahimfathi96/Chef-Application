@@ -1,10 +1,13 @@
-import 'package:chef_app/core/localization/app_locale.dart';
+import 'package:chef_app/core/bloc/cubit/global_cubit.dart';
+import 'package:chef_app/core/bloc/cubit/global_state.dart';
+import 'package:chef_app/core/locale/app_locale.dart';
 import 'package:chef_app/core/utils/app_assets.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
 import 'package:chef_app/core/widgets/custom_button.dart';
 import 'package:chef_app/core/widgets/custom_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class ChangeLanguageScreen extends StatelessWidget {
@@ -57,25 +60,35 @@ class ChangeLanguageScreen extends StatelessWidget {
               SizedBox(
                 height: 120.h,
               ),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 24.w),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    CustomButton(
-                      text: "English",
-                      onPressed: () {},
-                      width: 140,
-                      backgroundColor: AppColors.blackColor,
+              BlocBuilder<GlobalCubit, GlobalState>(
+                builder: (context, state) {
+                  return Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 24.w),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        CustomButton(
+                          text: "English",
+                          onPressed: () {
+                            BlocProvider.of<GlobalCubit>(context)
+                                .changeLanguage();
+                          },
+                          width: 140,
+                          backgroundColor: AppColors.blackColor,
+                        ),
+                        CustomButton(
+                          text: "العربية",
+                          onPressed: () {
+                            BlocProvider.of<GlobalCubit>(context)
+                                .changeLanguage();
+                          },
+                          width: 140,
+                          backgroundColor: AppColors.blackColor,
+                        ),
+                      ],
                     ),
-                    CustomButton(
-                      text: "العربية",
-                      onPressed: () {},
-                      width: 140,
-                      backgroundColor: AppColors.blackColor,
-                    ),
-                  ],
-                ),
+                  );
+                },
               ),
             ],
           ),
