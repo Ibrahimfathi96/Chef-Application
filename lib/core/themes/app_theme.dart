@@ -27,6 +27,9 @@ ThemeData getAppTheme() {
     ),
     //Text Field
     inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(
+        borderRadius: BorderRadius.circular(8),
+      ),
       enabledBorder: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
       ),

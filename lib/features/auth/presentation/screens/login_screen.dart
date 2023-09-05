@@ -69,7 +69,7 @@ class LoginScreen extends StatelessWidget {
                             },
                           ),
                           SizedBox(
-                            height: 32.h,
+                            height: 20.h,
                           ),
                           //! Password TextFormField
                           CustomTextFormField(
@@ -94,7 +94,7 @@ class LoginScreen extends StatelessWidget {
                             },
                           ),
                           SizedBox(
-                            height: 24.h,
+                            height: 20.h,
                           ),
                           BlocConsumer<GlobalCubit, GlobalState>(
                             listener: (context, state) {},
@@ -123,7 +123,7 @@ class LoginScreen extends StatelessWidget {
                           ),
 
                           SizedBox(
-                            height: 64.h,
+                            height: 20.h,
                           ),
                           CustomButton(
                             onPressed: () {
@@ -131,13 +131,13 @@ class LoginScreen extends StatelessWidget {
                                   .loginKey
                                   .currentState!
                                   .validate()) {
-                                print("login");
+                                debugPrint("login");
                               }
                             },
                             text: AppStrings.signIn.tr(context),
                           ),
                           SizedBox(
-                            height: 30.h,
+                            height: 20.h,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.center,

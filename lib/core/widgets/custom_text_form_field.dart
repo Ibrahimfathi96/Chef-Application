@@ -32,7 +32,10 @@ class CustomTextFormField extends StatelessWidget {
         labelText: labelText,
         suffixIcon: IconButton(
           onPressed: onSuffixPress,
-          icon: Icon(icon),
+          icon: Icon(
+            icon,
+            color: AppColors.primaryColor,
+          ),
         ),
       ),
     );
