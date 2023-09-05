@@ -130,7 +130,7 @@ class LoginScreen extends StatelessWidget {
                                   .loginKey
                                   .currentState!
                                   .validate()) {
-                                debugPrint("login");
+                                BlocProvider.of<LoginCubit>(context).login();
                               }
                             },
                             text: AppStrings.signIn.tr(context),
@@ -180,3 +180,5 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
+
+   
