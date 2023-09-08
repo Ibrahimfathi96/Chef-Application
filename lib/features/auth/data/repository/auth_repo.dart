@@ -29,6 +29,8 @@ class AuthRepository {
       return Right(response[ApiKeys.message]);
     } on ServerException catch (errorMsg) {
       return Left(errorMsg.errorModel.errorMessage);
+    } catch (error) {
+      return Left(error.toString());
     }
   }
 }

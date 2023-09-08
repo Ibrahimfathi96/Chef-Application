@@ -2,6 +2,7 @@ import 'package:chef_app/core/locale/app_locale.dart';
 import 'package:chef_app/core/utils/app_assets.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
+import 'package:chef_app/core/utils/commons.dart';
 import 'package:chef_app/core/widgets/custom_button.dart';
 import 'package:chef_app/core/widgets/custom_image.dart';
 import 'package:chef_app/core/widgets/custom_loading_indicator.dart';
@@ -28,7 +29,20 @@ class SendCodeScreen extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 24.0.h),
         child: SingleChildScrollView(
           child: BlocConsumer<ForgetPasswordCubit, ForgetPasswordState>(
-            listener: (context, state) {},
+            listener: (context, state) {
+              if (state is SendCodeLoading) {
+                showToast(
+                  message: AppStrings.checkMail.tr(context),
+                  state: ToastStates.success,
+                );
+              }
+              if (state is SendCodeInError) {
+                showToast(
+                  message: state.errorMsg,
+                  state: ToastStates.error,
+                );
+              }
+            },
             builder: (context, state) {
               return Form(
                 key: BlocProvider.of<ForgetPasswordCubit>(context).formKey,
@@ -55,29 +69,36 @@ class SendCodeScreen extends StatelessWidget {
                       height: 26.h,
                     ),
                     //text field
-                    state is SendCodeLoading
-                        ? const CustomLoadingIndicator()
-                        : CustomTextFormField(
-                            hintText: AppStrings.email.tr(context),
-                            labelText: AppStrings.email.tr(context),
-                            controller: TextEditingController(),
-                          ),
+                    CustomTextFormField(
+                      hintText: AppStrings.email.tr(context),
+                      labelText: AppStrings.email.tr(context),
+                      controller: BlocProvider.of<ForgetPasswordCubit>(context)
+                          .emailController,
+                      validator: (val) {
+                        if (val!.isEmpty || !val.contains("@gmail.com")) {
+                          return AppStrings.pleaseEnterValidEmail.tr(context);
+                        }
+                        return null;
+                      },
+                    ),
                     SizedBox(
                       height: 26.h,
                     ),
                     //button
-                    CustomButton(
-                      onPressed: () {
-                        if (BlocProvider.of<ForgetPasswordCubit>(context)
-                            .formKey
-                            .currentState!
-                            .validate()) {
-                          BlocProvider.of<ForgetPasswordCubit>(context)
-                              .sendCode();
-                        }
-                      },
-                      text: AppStrings.sendResetLink.tr(context),
-                    ),
+                    state is SendCodeLoading
+                        ? const CustomLoadingIndicator()
+                        : CustomButton(
+                            onPressed: () {
+                              if (BlocProvider.of<ForgetPasswordCubit>(context)
+                                  .formKey
+                                  .currentState!
+                                  .validate()) {
+                                BlocProvider.of<ForgetPasswordCubit>(context)
+                                    .sendCode();
+                              }
+                            },
+                            text: AppStrings.sendResetLink.tr(context),
+                          ),
                   ],
                 ),
               );
