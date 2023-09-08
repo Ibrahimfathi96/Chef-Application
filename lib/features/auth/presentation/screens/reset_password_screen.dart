@@ -31,17 +31,17 @@ class ResetPasswordScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: BlocConsumer<ForgetPasswordCubit, ForgetPasswordState>(
             listener: (context, state) {
-              if (state is SendCodeSuccess) {
+              if (state is ResetPasswordSuccess) {
                 showToast(
-                  message: AppStrings.checkMail.tr(context),
+                  message: state.successMsg,
                   state: ToastStates.success,
                 );
                 navigate(
                   context: context,
-                  routeName: Routes.resetPassword,
+                  routeName: Routes.login,
                 );
               }
-              if (state is SendCodeInError) {
+              if (state is ResetPasswordInError) {
                 showToast(
                   message: state.errorMsg,
                   state: ToastStates.error,
@@ -161,8 +161,8 @@ class ResetPasswordScreen extends StatelessWidget {
                                   .resetPasswordKey
                                   .currentState!
                                   .validate()) {
-                                // BlocProvider.of<ForgetPasswordCubit>(context)
-                                //     .sendCode();
+                                BlocProvider.of<ForgetPasswordCubit>(context)
+                                    .resetPassword();
                               }
                             },
                             text: AppStrings.resetPassword.tr(context),

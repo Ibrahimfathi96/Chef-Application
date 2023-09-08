@@ -46,4 +46,20 @@ class ForgetPasswordCubit extends Cubit<ForgetPasswordState> {
         isConfirmPasswordVisible ? Icons.visibility : Icons.visibility_off;
     emit(ChangeConfirmPasswordSuffixIcon());
   }
+
+  // change password method that
+  // recieves newPassword & confirmPassword &code and email
+  void resetPassword() async {
+    emit(ResetPasswordLoading());
+    final result = await authRepository.resetPassword(
+      email: emailController.text,
+      password: newPasswordController.text,
+      confirmPassword: confirmPasswordController.text,
+      code: codeController.text,
+    );
+    result.fold(
+      (l) => emit(ResetPasswordInError(errorMsg: l)),
+      (r) => emit(ResetPasswordSuccess(successMsg: r)),
+    );
+  }
 }
