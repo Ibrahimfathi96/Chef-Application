@@ -27,6 +27,10 @@ ThemeData getAppTheme() {
     ),
     //Text Field
     inputDecorationTheme: InputDecorationTheme(
+      labelStyle: boldStyle(
+        color: AppColors.greyColor,
+        fontSize: 16,
+      ),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(8),
       ),

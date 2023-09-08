@@ -20,4 +20,15 @@ class AuthRepository {
       return Left(errorMsg.errorModel.errorMessage);
     }
   }
+
+  Future<Either<String, String>> sendCode(String email) async {
+    try {
+      final response = await sl<ApiConsumer>().post(EndPoint.sendCode, data: {
+        ApiKeys.email: email,
+      });
+      return Right(response[ApiKeys.message]);
+    } on ServerException catch (errorMsg) {
+      return Left(errorMsg.errorModel.errorMessage);
+    }
+  }
 }
