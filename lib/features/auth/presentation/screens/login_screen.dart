@@ -4,6 +4,7 @@ import 'package:chef_app/core/locale/app_locale.dart';
 import 'package:chef_app/core/utils/app_assets.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
+import 'package:chef_app/core/utils/commons.dart';
 import 'package:chef_app/core/widgets/custom_button.dart';
 import 'package:chef_app/core/widgets/custom_image.dart';
 import 'package:chef_app/core/widgets/custom_loading_indicator.dart';
@@ -13,7 +14,6 @@ import 'package:chef_app/features/auth/presentation/cubit/login_cubit/login_stat
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -49,7 +49,20 @@ class LoginScreen extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 24.h),
                 child: BlocConsumer<LoginCubit, LoginState>(
-                  listener: (context, state) {},
+                  listener: (context, state) {
+                    if (state is LoginLoadingState) {
+                      showToast(
+                        message: AppStrings.loginSuccessfully.tr(context),
+                        state: ToastStates.success,
+                      );
+                    }
+                    if (state is LoginErrorState) {
+                      showToast(
+                        message: state.errorMessage,
+                        state: ToastStates.error,
+                      );
+                    }
+                  },
                   builder: (context, state) {
                     return Form(
                       key: BlocProvider.of<LoginCubit>(context).loginKey,
