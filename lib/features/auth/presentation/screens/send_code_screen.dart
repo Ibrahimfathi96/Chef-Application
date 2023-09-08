@@ -36,7 +36,7 @@ class SendCodeScreen extends StatelessWidget {
                   message: state.successMsg,
                   state: ToastStates.success,
                 );
-                navigate(
+                navigateReplacement(
                   context: context,
                   routeName: Routes.resetPassword,
                 );

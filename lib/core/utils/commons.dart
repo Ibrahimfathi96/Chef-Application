@@ -14,6 +14,18 @@ void navigate({
   );
 }
 
+void navigateReplacement({
+  required BuildContext context,
+  required String routeName,
+  dynamic arguments,
+}) {
+  Navigator.pushReplacementNamed(
+    context,
+    routeName,
+    arguments: arguments,
+  );
+}
+
 void showToast({
   required String message,
   required ToastStates state,

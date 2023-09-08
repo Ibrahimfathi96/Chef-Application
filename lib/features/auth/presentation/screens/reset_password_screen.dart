@@ -36,7 +36,7 @@ class ResetPasswordScreen extends StatelessWidget {
                   message: state.successMsg,
                   state: ToastStates.success,
                 );
-                navigate(
+                navigateReplacement(
                   context: context,
                   routeName: Routes.login,
                 );
@@ -153,7 +153,7 @@ class ResetPasswordScreen extends StatelessWidget {
                       height: 26.h,
                     ),
                     //button
-                    state is SendCodeLoading
+                    state is ResetPasswordLoading
                         ? const CustomLoadingIndicator()
                         : CustomButton(
                             onPressed: () {

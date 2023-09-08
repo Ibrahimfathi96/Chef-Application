@@ -51,7 +51,7 @@ class LoginScreen extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: 24.h),
                 child: BlocConsumer<LoginCubit, LoginState>(
                   listener: (context, state) {
-                    if (state is LoginLoadingState) {
+                    if (state is LoginSuccessState) {
                       showToast(
                         message: AppStrings.loginSuccessfully.tr(context),
                         state: ToastStates.success,
@@ -123,7 +123,7 @@ class LoginScreen extends StatelessWidget {
                                     : Alignment.centerLeft,
                                 child: TextButton(
                                   onPressed: () {
-                                    navigate(
+                                    navigateReplacement(
                                       context: context,
                                       routeName: Routes.sendCode,
                                     );
