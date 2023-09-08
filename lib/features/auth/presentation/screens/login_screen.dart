@@ -1,6 +1,7 @@
 import 'package:chef_app/core/bloc/cubit/global_cubit.dart';
 import 'package:chef_app/core/bloc/cubit/global_state.dart';
 import 'package:chef_app/core/locale/app_locale.dart';
+import 'package:chef_app/core/routes/app_routes.dart';
 import 'package:chef_app/core/utils/app_assets.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
@@ -121,16 +122,14 @@ class LoginScreen extends StatelessWidget {
                                     ? Alignment.centerRight
                                     : Alignment.centerLeft,
                                 child: TextButton(
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    navigate(
+                                      context: context,
+                                      routeName: Routes.sendCode,
+                                    );
+                                  },
                                   child: Text(
                                     AppStrings.forgetPassword.tr(context),
-                                    style: Theme.of(context)
-                                        .textTheme
-                                        .displayLarge!
-                                        .copyWith(
-                                          color: AppColors.greyColor,
-                                          fontSize: 16,
-                                        ),
                                   ),
                                 ),
                               );

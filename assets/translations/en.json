@@ -62,5 +62,6 @@
     "pleaseEnterValidNumber": "Please Enter Valid Number",
     "camera": "Camera",
     "gallery": "Gallery",
-    "don'tHaveAnAccount":"Don't Have an Account ?  "
+    "don'tHaveAnAccount":"Don't Have an Account ?  ",
+    "forgetPassword2":"Forget Password"
 }

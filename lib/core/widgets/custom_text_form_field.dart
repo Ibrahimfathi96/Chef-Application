@@ -1,5 +1,6 @@
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextFormField extends StatelessWidget {
   final String hintText;
@@ -28,6 +29,7 @@ class CustomTextFormField extends StatelessWidget {
       validator: validator,
       obscureText: isPassword,
       decoration: InputDecoration(
+        contentPadding: EdgeInsets.symmetric(horizontal: 16.w),
         hintText: hintText,
         labelText: labelText,
         suffixIcon: IconButton(

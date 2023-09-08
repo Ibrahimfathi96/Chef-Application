@@ -46,5 +46,16 @@ ThemeData getAppTheme() {
       // fillColor: AppColors.whiteColor,
       // filled: true,
     ),
+    textButtonTheme: TextButtonThemeData(
+      style: ButtonStyle(
+        foregroundColor: MaterialStateProperty.all(AppColors.greyColor),
+        textStyle: MaterialStatePropertyAll(
+          boldStyle(
+            color: AppColors.greyColor,
+            fontSize: 16,
+          ),
+        ),
+      ),
+    ),
   );
 }

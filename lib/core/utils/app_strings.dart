@@ -15,6 +15,7 @@ class AppStrings {
   static const String password = 'password';
   static const String confirmPassword = 'confirmPassword';
   static const String forgetPassword = 'forgetPassword';
+  static const String forgetPassword2 = 'forgetPassword2';
   static const String newPassword = 'newPassword';
   static const String oldPassword = 'oldPassword';
   static const String sendResetLink = 'sendResetLink';
