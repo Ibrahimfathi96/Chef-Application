@@ -40,6 +40,8 @@ class AppStrings {
       'PasswordChangedSuccessfully';
   static const String pleaseEnterValidNumber = 'pleaseEnterValidNumber';
   static const String sendCodeSuccessfully = 'sendCodeSuccessfully';
+  static const String resetPassword = 'resetPassword';
+  static const String passwordsNotMatched = 'passwordsNotMatched';
 
   //! home-order-menu
   static const String addDishToMenu = 'addDishToMenu';

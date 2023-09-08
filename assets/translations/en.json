@@ -63,5 +63,7 @@
     "camera": "Camera",
     "gallery": "Gallery",
     "don'tHaveAnAccount":"Don't Have an Account ?  ",
-    "forgetPassword2":"Forget Password"
+    "forgetPassword2":"Forget Password",
+    "resetPassword":"Reset Password",
+    "passwordsNotMatched":"Passwords doesn't match"
 }

@@ -15,3 +15,6 @@ final class SendCodeInError extends ForgetPasswordState {
 
   SendCodeInError({required this.errorMsg});
 }
+
+final class ChangeNewPasswordSuffixIcon extends ForgetPasswordState {}
+final class ChangeConfirmPasswordSuffixIcon extends ForgetPasswordState {}

@@ -1,4 +1,5 @@
 import 'package:chef_app/core/locale/app_locale.dart';
+import 'package:chef_app/core/routes/app_routes.dart';
 import 'package:chef_app/core/utils/app_assets.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
@@ -30,10 +31,14 @@ class SendCodeScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: BlocConsumer<ForgetPasswordCubit, ForgetPasswordState>(
             listener: (context, state) {
-              if (state is SendCodeLoading) {
+              if (state is SendCodeSuccess) {
                 showToast(
-                  message: AppStrings.checkMail.tr(context),
+                  message: state.successMsg,
                   state: ToastStates.success,
+                );
+                navigate(
+                  context: context,
+                  routeName: Routes.resetPassword,
                 );
               }
               if (state is SendCodeInError) {
@@ -45,7 +50,7 @@ class SendCodeScreen extends StatelessWidget {
             },
             builder: (context, state) {
               return Form(
-                key: BlocProvider.of<ForgetPasswordCubit>(context).formKey,
+                key: BlocProvider.of<ForgetPasswordCubit>(context).sendCodeKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -90,7 +95,7 @@ class SendCodeScreen extends StatelessWidget {
                         : CustomButton(
                             onPressed: () {
                               if (BlocProvider.of<ForgetPasswordCubit>(context)
-                                  .formKey
+                                  .sendCodeKey
                                   .currentState!
                                   .validate()) {
                                 BlocProvider.of<ForgetPasswordCubit>(context)
