@@ -4,6 +4,7 @@ import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
 import 'package:chef_app/core/widgets/custom_button.dart';
 import 'package:chef_app/core/widgets/custom_image.dart';
+import 'package:chef_app/core/widgets/custom_loading_indicator.dart';
 import 'package:chef_app/core/widgets/custom_text_form_field.dart';
 import 'package:chef_app/features/auth/presentation/cubits/forget_password_cubit/cubit/forget_password_cubit.dart';
 import 'package:chef_app/features/auth/presentation/cubits/forget_password_cubit/cubit/forget_password_state.dart';
@@ -30,6 +31,7 @@ class SendCodeScreen extends StatelessWidget {
             listener: (context, state) {},
             builder: (context, state) {
               return Form(
+                key: BlocProvider.of<ForgetPasswordCubit>(context).formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
@@ -53,17 +55,27 @@ class SendCodeScreen extends StatelessWidget {
                       height: 26.h,
                     ),
                     //text field
-                    CustomTextFormField(
-                      hintText: AppStrings.email.tr(context),
-                      labelText: AppStrings.email.tr(context),
-                      controller: TextEditingController(),
-                    ),
+                    state is SendCodeLoading
+                        ? const CustomLoadingIndicator()
+                        : CustomTextFormField(
+                            hintText: AppStrings.email.tr(context),
+                            labelText: AppStrings.email.tr(context),
+                            controller: TextEditingController(),
+                          ),
                     SizedBox(
                       height: 26.h,
                     ),
                     //button
                     CustomButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        if (BlocProvider.of<ForgetPasswordCubit>(context)
+                            .formKey
+                            .currentState!
+                            .validate()) {
+                          BlocProvider.of<ForgetPasswordCubit>(context)
+                              .sendCode();
+                        }
+                      },
                       text: AppStrings.sendResetLink.tr(context),
                     ),
                   ],
