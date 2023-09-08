@@ -6,6 +6,7 @@ import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
 import 'package:chef_app/core/widgets/custom_button.dart';
 import 'package:chef_app/core/widgets/custom_image.dart';
+import 'package:chef_app/core/widgets/custom_loading_indicator.dart';
 import 'package:chef_app/core/widgets/custom_text_form_field.dart';
 import 'package:chef_app/features/auth/presentation/cubit/login_cubit/login_cubit.dart';
 import 'package:chef_app/features/auth/presentation/cubit/login_cubit/login_state.dart';
@@ -13,6 +14,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -125,9 +127,7 @@ class LoginScreen extends StatelessWidget {
                             height: 20.h,
                           ),
                           state is LoginLoadingState
-                              ? const SpinKitFadingCircle(
-                                  color: AppColors.primaryColor,
-                                )
+                              ? const CustomLoadingIndicator()
                               : CustomButton(
                                   onPressed: () {
                                     if (BlocProvider.of<LoginCubit>(context)
