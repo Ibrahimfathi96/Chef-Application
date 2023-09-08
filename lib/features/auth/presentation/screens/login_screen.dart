@@ -12,7 +12,7 @@ import 'package:chef_app/features/auth/presentation/cubit/login_cubit/login_stat
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
 
@@ -124,17 +124,22 @@ class LoginScreen extends StatelessWidget {
                           SizedBox(
                             height: 20.h,
                           ),
-                          CustomButton(
-                            onPressed: () {
-                              if (BlocProvider.of<LoginCubit>(context)
-                                  .loginKey
-                                  .currentState!
-                                  .validate()) {
-                                BlocProvider.of<LoginCubit>(context).login();
-                              }
-                            },
-                            text: AppStrings.signIn.tr(context),
-                          ),
+                          state is LoginLoadingState
+                              ? const SpinKitFadingCircle(
+                                  color: AppColors.primaryColor,
+                                )
+                              : CustomButton(
+                                  onPressed: () {
+                                    if (BlocProvider.of<LoginCubit>(context)
+                                        .loginKey
+                                        .currentState!
+                                        .validate()) {
+                                      BlocProvider.of<LoginCubit>(context)
+                                          .login();
+                                    }
+                                  },
+                                  text: AppStrings.signIn.tr(context),
+                                ),
                           SizedBox(
                             height: 20.h,
                           ),
@@ -180,5 +185,3 @@ class LoginScreen extends StatelessWidget {
     );
   }
 }
-
-   
