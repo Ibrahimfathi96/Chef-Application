@@ -57,6 +57,8 @@ class AppStrings {
   static const String mealUpdatedSuccessfully = 'mealUpdatedSuccessfully';
   static const String offline = 'offline';
   static const String online = 'online';
+  static const String menu = 'menu';
+  static const String profile = 'profile';
   static const String pleaseEnterValidMealName = 'pleaseEnterValidMealName';
   static const String pleaseEnterValidMealDesc = 'pleaseEnterValidMealDesc';
   static const String pleaseEnterValidMealPrice = 'pleaseEnterValidMealPrice';

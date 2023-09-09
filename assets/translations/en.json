@@ -65,5 +65,6 @@
     "don'tHaveAnAccount":"Don't Have an Account ?  ",
     "forgetPassword2":"Forget Password",
     "resetPassword":"Reset Password",
-    "passwordsNotMatched":"Passwords doesn't match"
+    "passwordsNotMatched":"Passwords doesn't match",
+    "meun":"Menu"
 }

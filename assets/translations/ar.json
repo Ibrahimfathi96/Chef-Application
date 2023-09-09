@@ -65,5 +65,6 @@
     "don'tHaveAnAccount":"ليس لديك حساب ؟  ",
     "forgetPassword2":"نسيت كلمة المرور",
     "resetPassword":"تغيير كلمة المرور",
-    "passwordsNotMatched":"كلمات المرور غير متطابقة"
+    "passwordsNotMatched":"كلمات المرور غير متطابقة",
+    "menu":"القائمة"
 }
