@@ -1,4 +1,7 @@
+import 'package:chef_app/core/locale/app_locale.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
+import 'package:chef_app/core/utils/app_strings.dart';
+import 'package:chef_app/core/widgets/custom_alert_dialog.dart';
 import 'package:chef_app/core/widgets/custom_cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -56,7 +59,15 @@ class CustomMenuItem extends StatelessWidget {
             ),
             const Spacer(),
             InkWell(
-              onTap: () {},
+              onTap: () {
+                showDialog(
+                  context: context,
+                  builder: (context) => CustomAlertDialog(
+                    contentMsg: AppStrings.deleteMeal.tr(context),
+                    onConfirmClick: () {},
+                  ),
+                );
+              },
               child: Container(
                 width: 48.w,
                 height: 48.h,
@@ -66,7 +77,7 @@ class CustomMenuItem extends StatelessWidget {
                 ),
                 child: const Icon(
                   Icons.close,
-                  size: 36,
+                  size: 46,
                   color: Colors.white,
                 ),
               ),

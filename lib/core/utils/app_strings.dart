@@ -53,6 +53,7 @@ class AppStrings {
   static const String mealQuantity = 'mealQuantity';
   static const String uploadPhoto = 'uploadPhoto';
   static const String addToMenu = 'addToMenu';
+  static const String deleteMeal = 'deleteMeal';
   static const String mealAddedSuccessfully = 'mealAddedSuccessfully';
   static const String mealDeletedSuccessfully = 'mealDeletedSuccessfully';
   static const String mealUpdatedSuccessfully = 'mealUpdatedSuccessfully';
