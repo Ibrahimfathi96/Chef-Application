@@ -12,7 +12,7 @@
     "phone_number": "Phone Number",
     "password": "Password",
     "confirmPassword": "Confirm Password",
-    "forgetPassword": "Forget Password",
+    "forgetPassword": "Forget Password?",
     "sendResetLink": "Send Reset Link",
     "sendResetLinkInfo": "Enter your email address below and we will send you a code via your mail to reset your password.",
     "createYourNewPassword": "Create Your New Password",
@@ -66,5 +66,5 @@
     "forgetPassword2":"Forget Password",
     "resetPassword":"Reset Password",
     "passwordsNotMatched":"Passwords doesn't match",
-    "meun":"Menu"
+    "menu":"Menu"
 }

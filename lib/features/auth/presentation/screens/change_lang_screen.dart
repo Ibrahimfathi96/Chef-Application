@@ -1,9 +1,11 @@
 import 'package:chef_app/core/bloc/cubit/global_cubit.dart';
 import 'package:chef_app/core/bloc/cubit/global_state.dart';
 import 'package:chef_app/core/locale/app_locale.dart';
+import 'package:chef_app/core/routes/app_routes.dart';
 import 'package:chef_app/core/utils/app_assets.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
+import 'package:chef_app/core/utils/commons.dart';
 import 'package:chef_app/core/widgets/custom_button.dart';
 import 'package:chef_app/core/widgets/custom_image.dart';
 import 'package:flutter/material.dart';
@@ -73,6 +75,10 @@ class ChangeLanguageScreen extends StatelessWidget {
                             onPressed: () {
                               BlocProvider.of<GlobalCubit>(context)
                                   .changeLanguage('en');
+                              navigate(
+                                context: context,
+                                routeName: Routes.login,
+                              );
                             },
                             width: 140,
                             backgroundColor: AppColors.blackColor,
@@ -82,6 +88,10 @@ class ChangeLanguageScreen extends StatelessWidget {
                             onPressed: () {
                               BlocProvider.of<GlobalCubit>(context)
                                   .changeLanguage('ar');
+                              navigate(
+                                context: context,
+                                routeName: Routes.login,
+                              );
                             },
                             width: 140,
                             backgroundColor: AppColors.blackColor,

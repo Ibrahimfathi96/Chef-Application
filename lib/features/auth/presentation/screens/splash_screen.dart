@@ -1,5 +1,10 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:chef_app/core/database/api/end_points.dart';
+import 'package:chef_app/core/database/cache_helper/cache_helper.dart';
 import 'package:chef_app/core/locale/app_locale.dart';
 import 'package:chef_app/core/routes/app_routes.dart';
+import 'package:chef_app/core/services/service_locator.dart';
 import 'package:chef_app/core/utils/app_assets.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
@@ -24,10 +29,17 @@ class _SplashScreenState extends State<SplashScreen> {
 
   void navigateAfterThreeSeconds() {
     Future.delayed(const Duration(seconds: 3)).then(
-      (value) => navigate(
-        context: context,
-        routeName: Routes.changeLang,
-      ),
+      (value) async {
+        await sl<CacheHelper>().getData(key: ApiKeys.token) == null
+            ? navigate(
+                context: context,
+                routeName: Routes.changeLang,
+              )
+            : navigate(
+                context: context,
+                routeName: Routes.home,
+              );
+      },
     );
   }
 
