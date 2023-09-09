@@ -1,4 +1,4 @@
-import 'package:chef_app/core/home/home_cubit/cubit/home_cubit.dart';
+import 'package:chef_app/features/home/home_cubit/cubit/home_cubit.dart';
 import 'package:chef_app/core/locale/app_locale.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';

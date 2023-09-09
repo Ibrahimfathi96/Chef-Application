@@ -1,4 +1,4 @@
-import 'package:chef_app/core/home/screens/home_screen.dart';
+import 'package:chef_app/features/home/screens/home_screen.dart';
 import 'package:chef_app/features/auth/presentation/screens/change_lang_screen.dart';
 import 'package:chef_app/features/auth/presentation/screens/login_screen.dart';
 import 'package:chef_app/features/auth/presentation/screens/reset_password_screen.dart';

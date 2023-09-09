@@ -1,6 +1,6 @@
-import 'package:chef_app/core/home/components/gnav_component.dart';
-import 'package:chef_app/core/home/home_cubit/cubit/home_cubit.dart';
-import 'package:chef_app/core/home/home_cubit/cubit/home_state.dart';
+import 'package:chef_app/features/home/components/gnav_component.dart';
+import 'package:chef_app/features/home/home_cubit/cubit/home_cubit.dart';
+import 'package:chef_app/features/home/home_cubit/cubit/home_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

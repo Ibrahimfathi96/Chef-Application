@@ -45,6 +45,7 @@ class AppStrings {
 
   //! home-order-menu
   static const String addDishToMenu = 'addDishToMenu';
+  static const String addMeal = 'addMeal';
   static const String mealName = 'mealName';
   static const String mealDesc = 'mealDesc';
   static const String mealPrice = 'mealPrice';

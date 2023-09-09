@@ -1,4 +1,4 @@
-import 'package:chef_app/core/home/home_cubit/cubit/home_state.dart';
+import 'package:chef_app/features/home/home_cubit/cubit/home_state.dart';
 import 'package:chef_app/features/menu/presentation/screens/menu_home_screen.dart';
 import 'package:chef_app/features/profile/presentation/screens/profile_home_screen.dart';
 import 'package:flutter/material.dart';
