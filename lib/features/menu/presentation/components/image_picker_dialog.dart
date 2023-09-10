@@ -4,8 +4,12 @@ import 'package:chef_app/core/utils/app_strings.dart';
 import 'package:flutter/material.dart';
 
 class ImagePickerDialog extends StatelessWidget {
+  final VoidCallback onCameraTap;
+  final VoidCallback onGalleryTap;
   const ImagePickerDialog({
     super.key,
+    required this.onCameraTap,
+    required this.onGalleryTap,
   });
 
   @override
@@ -19,7 +23,7 @@ class ImagePickerDialog extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           ListTile(
-            onTap: () {},
+            onTap: onCameraTap,
             leading: const Icon(
               Icons.camera_alt,
               color: AppColors.primaryColor,
@@ -32,7 +36,7 @@ class ImagePickerDialog extends StatelessWidget {
             ),
           ),
           ListTile(
-            onTap: () {},
+            onTap: onGalleryTap,
             leading: const Icon(
               Icons.photo,
               color: AppColors.primaryColor,
