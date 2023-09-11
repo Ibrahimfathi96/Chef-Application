@@ -6,6 +6,7 @@ import 'package:chef_app/features/auth/data/repository/auth_repo.dart';
 import 'package:chef_app/features/auth/presentation/cubits/login_cubit/login_state.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:jwt_decoder/jwt_decoder.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit(this.authRepo) : super(LoginInitial());
@@ -35,6 +36,9 @@ class LoginCubit extends Cubit<LoginState> {
       (l) => emit(LoginErrorState(l)),
       (r) async {
         loginMd = r;
+        Map<String, dynamic> decodedToken = JwtDecoder.decode(r.token);
+        await sl<CacheHelper>()
+            .saveData(key: ApiKeys.chefId, value: decodedToken['id']);
         await sl<CacheHelper>().saveData(
           key: ApiKeys.token,
           value: r.token,

@@ -23,7 +23,11 @@ class EndPoint {
   }
 
   static String getDeleteMealEndPoint(id) {
-    return '$updateMeal$id';
+    return '$deleteMeal$id';
+  }
+
+  static String getAllChefMeals(id) {
+    return "chef/get-chef/$id/meals";
   }
 }
 
@@ -34,4 +38,11 @@ class ApiKeys {
   static const String code = 'code';
   static const String message = 'message';
   static const String token = 'token';
+  static const String name = 'name';
+  static const String description = 'description';
+  static const String price = 'price';
+  static const String category = 'category';
+  static const String mealImages = 'mealImages';
+  static const String howToSell = 'howToSell';
+  static const String chefId = 'id';
 }

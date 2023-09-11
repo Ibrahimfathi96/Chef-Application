@@ -1,4 +1,8 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:chef_app/core/locale/app_locale.dart';
 import 'package:chef_app/core/utils/app_colors.dart';
+import 'package:chef_app/core/utils/app_strings.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
@@ -61,4 +65,24 @@ Future<XFile?> pickImage(ImageSource source) async {
   } else {
     return null;
   }
+}
+
+Future uploadImages(XFile image) async {
+  return MultipartFile.fromFileSync(
+    image.path,
+    filename: image.path.split('/').last,
+  );
+}
+
+void awesomeAlertDialog(BuildContext context) {
+  AwesomeDialog(
+    context: context,
+    dialogType: DialogType.info,
+    animType: AnimType.rightSlide,
+    btnOkColor: AppColors.primaryColor,
+    title: AppStrings.deleteMeal.tr(context),
+    desc: 'Are you sure you want to delete this meal?',
+    btnCancelOnPress: () {},
+    btnOkOnPress: () {},
+  ).show();
 }

@@ -136,6 +136,7 @@ class AddMealScreen extends StatelessWidget {
                         ),
                         child: DropdownButton(
                           isExpanded: true,
+                          underline: const SizedBox(),
                           hint: Text(AppStrings.category.tr(context)),
                           value: menuCubit.selectedItem,
                           items: menuCubit.categoryList
