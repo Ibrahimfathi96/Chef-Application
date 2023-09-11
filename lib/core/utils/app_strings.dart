@@ -77,4 +77,5 @@ class AppStrings {
   static const String changePassword = 'changePassword';
   static const String ok = 'ok';
   static const String cancel = 'cancel';
+  static const String category = 'category';
 }

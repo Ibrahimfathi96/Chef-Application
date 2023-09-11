@@ -68,5 +68,6 @@
     "passwordsNotMatched":"Passwords doesn't match",
     "menu":"Menu",
     "addMeal":"Add Meal",
-    "deleteMeal":"Delete Meal!"
+    "deleteMeal":"Delete Meal!",
+    "category":"Category"
 }

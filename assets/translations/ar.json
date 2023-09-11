@@ -68,5 +68,6 @@
     "passwordsNotMatched":"كلمات المرور غير متطابقة",
     "menu":"القائمة",
     "addMeal":"إضافة وجبة",
-    "deleteMeal":"!حذف الوجبة"
+    "deleteMeal":"!حذف الوجبة",
+    "category":"الصنف"
 }
