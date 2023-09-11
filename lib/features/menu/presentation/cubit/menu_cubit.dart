@@ -5,6 +5,7 @@ import 'package:image_picker/image_picker.dart';
 
 class MenuCubit extends Cubit<MenuState> {
   MenuCubit() : super(MenuInitial());
+  String groupVal = 'quantity';
   XFile? image;
   TextEditingController mealNameController = TextEditingController();
   TextEditingController mealPriceController = TextEditingController();
@@ -26,5 +27,10 @@ class MenuCubit extends Cubit<MenuState> {
   void changeItem(item) {
     selectedItem = item;
     emit(ChangeMenuItemState());
+  }
+
+  void changeGroupVal(val) {
+    groupVal = val;
+    emit(ChangeGroupValState());
   }
 }

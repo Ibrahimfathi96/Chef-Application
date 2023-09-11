@@ -1,5 +1,6 @@
 import 'package:chef_app/core/locale/app_locale.dart';
 import 'package:chef_app/core/utils/app_assets.dart';
+import 'package:chef_app/core/utils/app_colors.dart';
 import 'package:chef_app/core/utils/app_strings.dart';
 import 'package:chef_app/core/utils/commons.dart';
 import 'package:chef_app/core/widgets/custom_button.dart';
@@ -28,7 +29,7 @@ class AddMealScreen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.all(24.0),
+          padding: const EdgeInsets.all(25.0),
           child: Center(
             child: BlocConsumer<MenuCubit, MenuState>(
               listener: (context, state) {},
@@ -47,8 +48,8 @@ class AddMealScreen extends StatelessWidget {
                           ),
                           //add icon button
                           Positioned.directional(
-                            bottom: -4,
-                            end: -2,
+                            bottom: 0,
+                            end: -6,
                             textDirection: Directionality.of(context),
                             child: InkWell(
                               onTap: () {
@@ -89,7 +90,7 @@ class AddMealScreen extends StatelessWidget {
                           ),
                         ],
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 24.h),
                       // name text field
                       CustomTextFormField(
                         hintText: AppStrings.mealName.tr(context),
@@ -103,7 +104,7 @@ class AddMealScreen extends StatelessWidget {
                           return null;
                         },
                       ),
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 24.h),
                       //price text field
                       CustomTextFormField(
                         hintText: AppStrings.mealPrice.tr(context),
@@ -122,10 +123,17 @@ class AddMealScreen extends StatelessWidget {
                         },
                       ),
                       //category  dropdown menu item
-                      SizedBox(height: 16.h),
-                      SizedBox(
+                      SizedBox(height: 24.h),
+                      Container(
+                        padding: const EdgeInsets.symmetric(horizontal: 16),
                         height: 48.h,
                         width: double.infinity,
+                        decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 1,
+                          ),
+                          borderRadius: BorderRadius.circular(8),
+                        ),
                         child: DropdownButton(
                           isExpanded: true,
                           hint: Text(AppStrings.category.tr(context)),
@@ -143,6 +151,7 @@ class AddMealScreen extends StatelessWidget {
                           },
                         ),
                       ),
+                      SizedBox(height: 24.h),
                       //desc text field
                       CustomTextFormField(
                         hintText: AppStrings.mealDesc.tr(context),
@@ -157,8 +166,58 @@ class AddMealScreen extends StatelessWidget {
                         },
                       ),
                       //quantity or number
-                      SizedBox(height: 16.h),
+                      SizedBox(height: 24.h),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Row(
+                            children: [
+                              Radio(
+                                activeColor: AppColors.primaryColor,
+                                value: 'quantity',
+                                groupValue: menuCubit.groupVal,
+                                onChanged: (value) {
+                                  menuCubit.changeGroupVal(value);
+                                },
+                              ),
+                              Text(
+                                AppStrings.mealQuantity.tr(context),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displayMedium!
+                                    .copyWith(
+                                      color: AppColors.blackColor,
+                                      fontSize: 18,
+                                    ),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: [
+                              Radio(
+                                activeColor: AppColors.primaryColor,
+                                value: 'number',
+                                groupValue: menuCubit.groupVal,
+                                onChanged: (value) {
+                                  menuCubit.changeGroupVal(value);
+                                },
+                              ),
+                              Text(
+                                AppStrings.mealNumber.tr(context),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .displayMedium!
+                                    .copyWith(
+                                      color: AppColors.blackColor,
+                                      fontSize: 18,
+                                    ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
                       // add to menu button
+                      SizedBox(height: 120.h),
                       CustomButton(
                         onPressed: () {},
                         text: AppStrings.addToMenu.tr(context),
