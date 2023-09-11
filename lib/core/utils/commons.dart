@@ -74,7 +74,11 @@ Future uploadImages(XFile image) async {
   );
 }
 
-void awesomeAlertDialog(BuildContext context) {
+void awesomeAlertDialog({
+  required BuildContext context,
+  required VoidCallback onConfirmClick,
+  VoidCallback? onCancelClick,
+}) {
   AwesomeDialog(
     context: context,
     dialogType: DialogType.info,
@@ -83,6 +87,6 @@ void awesomeAlertDialog(BuildContext context) {
     title: AppStrings.deleteMeal.tr(context),
     desc: 'Are you sure you want to delete this meal?',
     btnCancelOnPress: () {},
-    btnOkOnPress: () {},
+    btnOkOnPress: onConfirmClick,
   ).show();
 }

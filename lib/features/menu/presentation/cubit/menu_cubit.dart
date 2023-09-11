@@ -1,3 +1,4 @@
+import 'package:chef_app/features/menu/data/models/menu_model.dart';
 import 'package:chef_app/features/menu/data/repository/menu_repo.dart';
 import 'package:chef_app/features/menu/presentation/cubit/menu_state.dart';
 import 'package:flutter/material.dart';
@@ -34,5 +35,43 @@ class MenuCubit extends Cubit<MenuState> {
   void changeGroupVal(val) {
     groupVal = val;
     emit(ChangeGroupValState());
+  }
+
+  void addMealToMenu() async {
+    emit(AddMealLoadingState());
+    final result = await menuRepository.addMealToMenu(
+      image: image!,
+      mealName: mealNameController.text,
+      mealDesc: mealDescController.text,
+      mealPrice: double.parse(mealPriceController.text),
+      mealCategory: selectedItem,
+      howToSeal: groupVal,
+    );
+    result.fold(
+      (l) => emit(AddMealErrorState()),
+      (r) => emit(AddMealSuccessState()),
+    );
+  }
+
+  void deleteMealFromMenu(id) async {
+    emit(DeleteMealLoadingState());
+    final result = await menuRepository.deleteMealById(mealId: id);
+    result.fold(
+      (l) => emit(DeleteMealErrorState()),
+      (r) => emit(DeleteMealSuccessState()),
+    );
+  }
+
+  List<MealModel> meals = [];
+  void getAllChefMeals() async {
+    emit(GetAllChefMealsLoadingState());
+    final result = await menuRepository.getMeals();
+    result.fold(
+      (l) => emit(GetAllChefMealsErrorState()),
+      (r) {
+        meals = r.meals;
+        emit(GetAllChefMealsSuccessState());
+      },
+    );
   }
 }

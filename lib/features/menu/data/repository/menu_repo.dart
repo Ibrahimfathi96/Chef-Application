@@ -13,7 +13,7 @@ class MenuRepository {
     required XFile image,
     required String mealName,
     required String mealDesc,
-    required String mealPrice,
+    required double mealPrice,
     required String mealCategory,
     required String howToSeal,
   }) async {

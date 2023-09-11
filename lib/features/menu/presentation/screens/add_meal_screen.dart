@@ -32,7 +32,15 @@ class AddMealScreen extends StatelessWidget {
           padding: const EdgeInsets.all(25.0),
           child: Center(
             child: BlocConsumer<MenuCubit, MenuState>(
-              listener: (context, state) {},
+              listener: (context, state) {
+                if (state is AddMealSuccessState) {
+                  showToast(
+                    message: AppStrings.mealAddedSuccessfully,
+                    state: ToastStates.success,
+                  );
+                  Navigator.pop(context);
+                }
+              },
               builder: (context, state) {
                 return Form(
                   key: menuCubit.addToMenuKey,
@@ -220,7 +228,11 @@ class AddMealScreen extends StatelessWidget {
                       // add to menu button
                       SizedBox(height: 120.h),
                       CustomButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          if (menuCubit.addToMenuKey.currentState!.validate()) {
+                            menuCubit.addMealToMenu();
+                          }
+                        },
                         text: AppStrings.addToMenu.tr(context),
                       ),
                     ],
